@@ -33,6 +33,18 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+// const playerSelection = "rock";
+// const computerSelection = computerPlay();
+//console.log(playRound(playerSelection, computerSelection));
+
+// point e
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = window.prompt("What do you want to input? ");
+    let computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+  }
+}
+
+game();
