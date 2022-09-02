@@ -19,17 +19,17 @@ function playRound(playerSelection, computerSelection) {
   if (lowerPlayer == lowerComputer) {
     return "Draw";
   } else if (lowerPlayer == "rock" && lowerComputer == "paper") {
-    return "You Lose! Paper beats Rock";
+    return "Lose!";
   } else if (lowerPlayer == "rock" && lowerComputer == "scissors") {
-    return "you win! Rock beats Scissors";
+    return "Win!";
   } else if (lowerPlayer == "paper" && lowerComputer == "scissors") {
-    return "you lose! Scissors beats paper";
+    return "Lose!";
   } else if (lowerPlayer == "paper" && lowerComputer == "rock") {
-    return "you win! paper beats rock";
+    return "Win!";
   } else if (lowerPlayer == "scissors" && lowerComputer == "rock") {
-    return "you lose! Rock beats Scissors";
+    return "Lose!";
   } else if (lowerPlayer == "scissors" && lowerComputer == "paper") {
-    return "you win! Scissors beats paper";
+    return "Win!";
   }
 }
 
@@ -40,11 +40,27 @@ function playRound(playerSelection, computerSelection) {
 // point e
 
 function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+
   for (let i = 0; i < 5; i++) {
     let playerSelection = window.prompt("What do you want to input? ");
     let computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    let result = playRound(playerSelection, computerSelection);
+    if (result == "Win!") {
+      playerScore++;
+    } else if (result == "Lose!") {
+      computerScore++;
+    }
+    console.log(result);
+  }
+  if (playerScore > computerScore) {
+    return "You Win!";
+  } else if (computerScore > playerScore) {
+    return "You Lose!";
+  } else {
+    return "Match Draw!";
   }
 }
 
-game();
+console.log("Final score: " + game());
