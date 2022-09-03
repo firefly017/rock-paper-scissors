@@ -1,4 +1,4 @@
-// point b
+// randomly generating computer play
 function computerPlay() {
   let randNum = Math.floor(Math.random() * 3);
   if (randNum == 0) {
@@ -11,7 +11,7 @@ function computerPlay() {
 }
 //console.log("the return value is " + computerPlay());
 
-//point c
+//playing a single round of game
 function playRound(playerSelection, computerSelection) {
   var lowerPlayer = playerSelection.toLowerCase();
   var lowerComputer = computerSelection.toLowerCase();
@@ -32,13 +32,11 @@ function playRound(playerSelection, computerSelection) {
     return "Win!";
   }
 }
-
 // const playerSelection = "rock";
 // const computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
 
-// point e
-
+// playing five round game with score
 function game() {
   let playerScore = 0;
   let computerScore = 0;
@@ -62,5 +60,4 @@ function game() {
     return "Match Draw!";
   }
 }
-
 console.log("Final score: " + game());
