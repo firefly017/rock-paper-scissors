@@ -45,6 +45,11 @@ function game() {
     let playerSelection = window.prompt("What do you want to input? ");
     let computerSelection = computerPlay();
     let result = playRound(playerSelection, computerSelection);
+    while (result == undefined) {
+      alert("no valid input!");
+      playerSelection = prompt("Watch your spelling");
+      result = playRound(playerSelection, computerSelection);
+    }
     if (result == "Win!") {
       playerScore++;
     } else if (result == "Lose!") {
