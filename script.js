@@ -65,4 +65,37 @@ function game() {
     return "Match Draw!";
   }
 }
-console.log("Final score: " + game());
+
+var curPlayerScore = 0;
+var curComputerScore = 0;
+function onRockButton() {
+  let playerSelection = "rock";
+  newPlay("rock");
+}
+
+function onPaperButton() {
+  newPlay("paper");
+}
+
+function onScissorButton() {
+  newPlay("scissors");
+}
+function newPlay(playerSelection) {
+  let computerSelection = computerPlay();
+
+  var result = playRound(playerSelection, computerSelection);
+  if (result == "Win!") {
+    curPlayerScore++;
+  } else if (result == "Lose!") {
+    curComputerScore++;
+  }
+  var resultMessage = "Game Running.";
+  if (curPlayerScore >= 5) {
+    resultMessage = "Game Over. Player wins.";
+  } else if (curComputerScore >= 5) {
+    resultMessage = "Game Over. Computer wins.";
+  }
+  resultMessage +=
+    "Player score:" + curPlayerScore + ", Computer score:" + curComputerScore;
+  document.getElementById("result").innerHTML = resultMessage;
+}
